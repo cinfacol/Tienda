@@ -7,6 +7,9 @@ django-autoslug
 django-countries
 django-phonenumber-field
 
+channels
+channels-redis
+
 pillow
 phonenumbers
 psycopg2-binary

@@ -27,6 +27,8 @@ django-celery-email = "*"
 argh = "*"
 pyyaml = "*"
 watchdog = "*"
+channels = "*"
+channels-redis = "*"
 
 [dev-packages]
 

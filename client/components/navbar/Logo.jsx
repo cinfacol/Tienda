@@ -1,0 +1,19 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Logo() {
+  return (
+    <Link href="/" className="m-1.5 p-1.5">
+      <span className="sr-only">Tienda Online</span>
+      <Image
+        alt="logo"
+        className="h-10 w-auto"
+        width={100}
+        height={100}
+        src="/assets/img/logos/logo.png"
+      />{" "}
+    </Link>
+  );
+}
