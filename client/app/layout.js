@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import Providers from "@/components/Providers";
 import "./globals.css";
 import "@/styles/fonts.css";
 // import "@/styles/customVideo.css";
@@ -16,9 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

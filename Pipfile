@@ -29,6 +29,7 @@ pyyaml = "*"
 watchdog = "*"
 channels = "*"
 channels-redis = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

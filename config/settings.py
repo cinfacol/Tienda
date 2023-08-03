@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = [
     "django_filters",
     "django_countries",
     "phonenumber_field",
+    "corsheaders",
     "djoser",
     "rest_framework_simplejwt",
     "djcelery_email",
@@ -48,6 +49,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -88,12 +90,24 @@ DATABASES = {
     }
 }
 
+AUTH_COOKIE = "access"
+AUTH_COOKIE_MAX_AGE = 60 * 60 * 24
+# AUTH_COOKIE_SECURE = env("AUTH_COOKIE_SECURE", "True") == "True"
+AUTH_COOKIE_SECURE = env("AUTH_COOKIE_SECURE")
+AUTH_COOKIE_HTTP_ONLY = True
+AUTH_COOKIE_PATH = "/"
+AUTH_COOKIE_SAMESITE = "None"
+
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:3000",
 ]
+
+CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS").split(",")
+
+CORS_ALLOWED_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
@@ -142,8 +156,9 @@ AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+        "apps.users.authentication.CustomJWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
 }
 
 SIMPLE_JWT = {
@@ -170,6 +185,7 @@ DJOSER = {
     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
+    "TOKEN_MODEL": None,
     "SERIALIZERS": {
         "user_create": "apps.users.serializers.CreateUserSerializer,",
         "user": "apps.users.serializers.UserSerializer",
@@ -187,6 +203,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = "info@last-shop.com"
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 DOMAIN = env("DOMAIN")
 SITE_NAME = "Last Shop"

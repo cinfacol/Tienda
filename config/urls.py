@@ -6,7 +6,8 @@ from django.urls import include, path
 urlpatterns = [
     path("supersecret/", admin.site.urls),
     path("api/auth/", include("djoser.urls")),
-    path("api/auth/", include("djoser.urls.jwt")),
+    path("api/auth/", include("apps.users.urls")),
+    # path("api/auth/", include("djoser.urls.jwt")),
     path("api/profile/", include("apps.profiles.urls")),
     path("api/products/", include("apps.products.urls")),
     path("api/ratings/", include("apps.ratings.urls")),

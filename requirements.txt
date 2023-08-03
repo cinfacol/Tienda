@@ -4,6 +4,7 @@ djangorestframework-simplejwt
 django-environ
 django-filter
 django-autoslug
+django-cors-headers
 django-countries
 django-phonenumber-field
 
