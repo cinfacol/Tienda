@@ -11,7 +11,7 @@ const navigation = [
 ];
 
 export default function Navigation() {
-  const [mobileMenuOpoen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="hidden lg:flex lg:gap-x-12">
       {navigation.map((item) => (

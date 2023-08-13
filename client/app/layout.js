@@ -1,10 +1,7 @@
-import Navbar from "@/components/navbar";
-import Providers from "@/components/Providers";
-import "./globals.css";
-import "@/styles/fonts.css";
-// import "@/styles/customVideo.css";
+import { Navbar, Footer } from "@/components/navbar";
+import CustomProvider from "@/redux/provider";
+import "@/styles/globals.css";
 import { Nunito } from "next/font/google";
-import Footer from "@/components/Footer";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -17,11 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={font.className}>
-        <Providers>
+        <CustomProvider>
           <Navbar />
-          {children}
+          <div>{children}</div>
           <Footer />
-        </Providers>
+        </CustomProvider>
       </body>
     </html>
   );
