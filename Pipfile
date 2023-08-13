@@ -30,6 +30,8 @@ watchdog = "*"
 channels = "*"
 channels-redis = "*"
 django-cors-headers = "*"
+social-auth-core = "*"
+social-auth-app-django = "*"
 
 [dev-packages]
 
