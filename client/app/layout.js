@@ -1,4 +1,5 @@
 import { Navbar, Footer } from "@/components/navbar";
+import { Setup } from "@/components/utils";
 import CustomProvider from "@/redux/provider";
 import "@/styles/globals.css";
 import { Nunito } from "next/font/google";
@@ -15,8 +16,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={font.className}>
         <CustomProvider>
+          <Setup />
           <Navbar />
-          <div>{children}</div>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
+            {children}
+          </div>
           <Footer />
         </CustomProvider>
       </body>

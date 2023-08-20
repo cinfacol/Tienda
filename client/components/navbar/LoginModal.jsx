@@ -8,6 +8,7 @@ import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/20/solid";
 // import { synchCart } from "@/utils/api/synchCart";
 // import CartContext from "@/context/cartContext";
 import Button from "../Button";
+import { SocialButtons } from "../common";
 
 const Loginmodal = ({
   open,
@@ -99,19 +100,15 @@ const Loginmodal = ({
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-lg sm:p-6">
-                <div className="sm:mx-auto sm:w-full sm:max-w-md ">
-                  <p className="mb-6 pt-8 text-center text-xl font-circular-bold dark:text-dark-txt">
-                    Login to your account
-                  </p>
-                  <div className="relative">
-                    <div
-                      className="absolute inset-0 flex items-center"
-                      aria-hidden="true"
-                    >
-                      <div className="w-full border-t border-gray-300 dark:border-dark-second" />
-                    </div>
-                    <div className="relative flex justify-center" />
-                  </div>
+                <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                  <img
+                    className="mx-auto h-10 w-auto"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt="Tienda Online"
+                  />
+                  <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    Sign in to your account
+                  </h2>
                 </div>
 
                 <div className=" sm:mx-auto sm:w-full sm:max-w-md">
@@ -207,6 +204,7 @@ const Loginmodal = ({
                           </button>
                         </div>
                       </div>
+                      <SocialButtons />
                       <div className="flex items-center justify-center">
                         <div className="text-sm">
                           <span className="text-md font-circular-bookdark-txt">

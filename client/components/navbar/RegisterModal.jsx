@@ -13,6 +13,7 @@ import Link from "next/link";
 import { ToastSuccess } from "../toast/ToastSuccess";
 import { ToastError } from "../toast/ToastError";
 import Button from "../Button";
+import { SocialButtons } from "../common";
 
 const Registermodal = ({
   open,
@@ -119,8 +120,13 @@ const Registermodal = ({
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md ">
+                  <img
+                    className="mx-auto h-10 w-auto"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt="Full Auth"
+                  />
                   <p className="mb-6 pt-8 text-center text-xl font-circular-bold dark:text-dark-txt">
-                    Signup and start your adventure
+                    Sign up for your account
                   </p>
                   <div className="relative">
                     <div
@@ -172,7 +178,7 @@ const Registermodal = ({
                         />
                       </div>
 
-                      <div className="relative">
+                      {/* <div className="relative">
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                           <IdentificationIcon
                             className="h-5 w-5 text-gray-400"
@@ -188,7 +194,7 @@ const Registermodal = ({
                           className="text-md duration block w-full border rounded focus:ring-none focus:outline-none border-dark py-3 pl-10 font-circular-light transition ease-in-out dark:bg-dark-second dark:text-dark-txt"
                           placeholder="Username"
                         />
-                      </div>
+                      </div> */}
 
                       <div className="relative">
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -327,6 +333,7 @@ const Registermodal = ({
                         </button>
                       </div>
                     </div>
+                    <SocialButtons />
                     <div className="my-2 flex items-center justify-center">
                       <div className="text-sm">
                         <span className="text-md font-base text-gray-900 dark:text-dark-txt">

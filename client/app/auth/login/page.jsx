@@ -3,8 +3,8 @@ import { LoginForm } from "@/components/forms";
 import { SocialButtons } from "@/components/common";
 
 export const metadata = {
-  title: "Full Auth | Login",
-  description: "Full Auth login page",
+  title: "Tienda | Login",
+  description: "Tienda login page",
 };
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
         <img
           className="mx-auto h-10 w-auto"
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-          alt="Full Auth"
+          alt="Tienda"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Sign in to your account
