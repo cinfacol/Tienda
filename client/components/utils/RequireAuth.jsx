@@ -16,7 +16,7 @@ export default function RequireAuth({ children }) {
   }
 
   if (!isAuthenticated) {
-    redirect("/auth/login");
+    redirect("/");
   }
 
   return <>{children}</>;

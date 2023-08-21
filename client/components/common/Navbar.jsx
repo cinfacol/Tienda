@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { useLogoutMutation } from "@/redux/features/authApiSlice";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { NavLink } from "@/components/common";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -79,13 +80,20 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <NavLink href="/" isBanner>
-                    Tienda Online
+                    <span className="sr-only">Tienda Online</span>
+                    <Image
+                      className="h-8 w-auto sm:h-10"
+                      src="/workflow-mark-indigo-600.svg"
+                      height={8}
+                      width={8}
+                      alt=""
+                    />
                   </NavLink>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    {isAuthenticated ? authLinks(false) : guestLinks(false)}
-                  </div>
+              </div>
+              <div className="hidden sm:ml-6 sm:block">
+                <div className="flex space-x-4 py-2">
+                  {isAuthenticated ? authLinks(false) : guestLinks(false)}
                 </div>
               </div>
             </div>
