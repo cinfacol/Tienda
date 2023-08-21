@@ -1,8 +1,8 @@
 import { PasswordResetForm } from "@/components/forms";
 
 export const metadata = {
-  title: "Full Auth | Password Reset",
-  description: "Full Auth password reset page",
+  title: "Tienda Online | Password Reset",
+  description: "Tienda Online password reset page",
 };
 
 export default function Page() {
@@ -12,7 +12,7 @@ export default function Page() {
         <img
           className="mx-auto h-10 w-auto"
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-          alt="Full Auth"
+          alt="Tienda Online"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Reset your password

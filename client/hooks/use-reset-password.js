@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import { useResetPasswordMutation } from "@/redux/features/authApiSlice";
 import { toast } from "react-toastify";
 
