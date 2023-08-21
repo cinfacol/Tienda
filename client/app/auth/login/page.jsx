@@ -3,7 +3,7 @@ import { LoginForm } from "@/components/forms";
 import { SocialButtons } from "@/components/common";
 
 export const metadata = {
-  title: "Tienda | Login",
+  title: "Tienda Online | Login",
   description: "Tienda login page",
 };
 

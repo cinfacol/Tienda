@@ -1,4 +1,3 @@
-import { ChangeEvent } from "react";
 import Link from "next/link";
 
 export default function Input({

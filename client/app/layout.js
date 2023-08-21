@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@/components/navbar";
+import { Navbar, Footer } from "@/components/common";
 import { Setup } from "@/components/utils";
 import CustomProvider from "@/redux/provider";
 import "@/styles/globals.css";
