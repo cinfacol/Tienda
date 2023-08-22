@@ -1,13 +1,21 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import {
+  Bars3Icon,
+  BellIcon,
+  HeartIcon,
+  ShoppingCartIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { useLogoutMutation } from "@/redux/features/authApiSlice";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { NavLink } from "@/components/common";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -27,39 +35,110 @@ export default function Navbar() {
 
   const isSelected = (path) => (pathname === path ? true : false);
 
-  const authLinks = (isMobile) => (
+  const authLinks = () => (
+    <>
+      <Menu.Item>
+        {({ active }) => (
+          <Link
+            href="/dashboard"
+            className={classNames(
+              active ? "bg-gray-100" : "",
+              "block px-4 py-2 text-sm text-gray-700"
+            )}
+          >
+            Dashboard
+          </Link>
+        )}
+      </Menu.Item>
+      <Menu.Item>
+        {({ active }) => (
+          <Link
+            href="/profile"
+            className={classNames(
+              active ? "bg-gray-100" : "",
+              "block px-4 py-2 text-sm text-gray-700"
+            )}
+          >
+            Profile
+          </Link>
+        )}
+      </Menu.Item>
+      <Menu.Item>
+        {({ active }) => (
+          <Link
+            href="/settings"
+            className={classNames(
+              active ? "bg-gray-100" : "",
+              "block px-4 py-2 text-sm text-gray-700"
+            )}
+          >
+            Settings
+          </Link>
+        )}
+      </Menu.Item>
+      <Menu.Item>
+        {({ active }) => (
+          <button
+            onClick={handleLogout}
+            className={classNames(
+              active ? "bg-gray-100" : "",
+              "block px-4 py-2 text-sm text-gray-700"
+            )}
+          >
+            Sign out
+          </button>
+        )}
+      </Menu.Item>
+    </>
+  );
+
+  const guestLinks = () => (
+    <>
+      <Menu.Item>
+        {({ active }) => (
+          <Link
+            href="/auth/login"
+            className={classNames(
+              active ? "bg-gray-100" : "",
+              "block px-4 py-2 text-sm text-gray-700"
+            )}
+          >
+            Login
+          </Link>
+        )}
+      </Menu.Item>
+    </>
+  );
+
+  const navigationLinks = (isMobile) => (
     <>
       <NavLink
-        isSelected={isSelected("/dashboard")}
+        isSelected={isSelected("/team")}
         isMobile={isMobile}
-        href="/dashboard"
+        href="/team"
       >
-        Dashboard
+        Team
       </NavLink>
-      <NavLink isMobile={isMobile} onClick={handleLogout}>
-        Logout
+      <NavLink
+        isSelected={isSelected("/projects")}
+        isMobile={isMobile}
+        href="/projects"
+      >
+        Projects
+      </NavLink>
+      <NavLink
+        isSelected={isSelected("/calendar")}
+        isMobile={isMobile}
+        href="/calendar"
+      >
+        Calendar
       </NavLink>
     </>
   );
 
-  const guestLinks = (isMobile) => (
-    <>
-      <NavLink
-        isSelected={isSelected("/auth/login")}
-        isMobile={isMobile}
-        href="/auth/login"
-      >
-        Login
-      </NavLink>
-      <NavLink
-        isSelected={isSelected("/auth/register")}
-        isMobile={isMobile}
-        href="/auth/register"
-      >
-        Register
-      </NavLink>
-    </>
-  );
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -68,7 +147,9 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -90,18 +171,88 @@ export default function Navbar() {
                     />
                   </NavLink>
                 </div>
-              </div>
-              <div className="hidden sm:ml-6 sm:block">
-                <div className="flex space-x-4 py-2">
-                  {isAuthenticated ? authLinks(false) : guestLinks(false)}
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4 pt-2">
+                    {navigationLinks(true)}
+                  </div>
                 </div>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button
+                  type="button"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Favorites</span>
+                  <HeartIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Items in Cart</span>
+                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    {isAuthenticated ? (
+                      <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span className="absolute -inset-1.5" />
+                        <span className="sr-only">Open user menu</span>
+                        <Image
+                          className="h-8 w-8 rounded-full"
+                          width={8}
+                          height={8}
+                          src="/images/profile2.jpg"
+                          alt=""
+                        />
+                      </Menu.Button>
+                    ) : (
+                      <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span className="absolute -inset-1.5" />
+                        <span className="sr-only">Open user menu</span>
+                        <Image
+                          className="h-8 w-8 rounded-full"
+                          width={8}
+                          height={8}
+                          src="/images/user_default_profile.png"
+                          alt=""
+                        />
+                      </Menu.Button>
+                    )}
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      {isAuthenticated ? authLinks : guestLinks}
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
               </div>
             </div>
           </div>
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {isAuthenticated ? authLinks(true) : guestLinks(true)}
+              {navigationLinks(true)}
             </div>
           </Disclosure.Panel>
         </>
