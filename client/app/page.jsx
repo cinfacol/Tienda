@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import Banner from "@/components/common/Banner";
 
 export const metadata = {
   title: "Tienda Online | Home",
@@ -7,9 +7,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="bg-white">
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+    <main className="bg-white overflow-hidden">
+      <Banner />
+      <div className="relative isolate px-6 pt-2 lg:px-8">
+        <div className="mx-auto max-w-2xl py-5 sm:py-6 lg:py-12">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Tienda Online Tutorial Application

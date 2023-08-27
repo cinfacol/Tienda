@@ -11,8 +11,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { useLogoutMutation } from "@/redux/features/authApiSlice";
-import { logout as setLogout } from "@/redux/features/authSlice";
+import { useLogoutMutation } from "@/redux/features/auth/authApiSlice";
+import { logout as setLogout } from "@/redux/features/auth/authSlice";
 import { NavLink } from "@/components/common";
 import Image from "next/image";
 import Link from "next/link";

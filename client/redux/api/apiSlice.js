@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { setAuth, logout } from "../features/authSlice";
+import { setAuth, logout } from "../features/auth/authSlice";
 import { Mutex } from "async-mutex";
 
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api/auth`,
+  baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
   credentials: "include",
 });
 const baseQueryWithReauth = async (args, api, extraOptions) => {
@@ -17,7 +17,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       try {
         const refreshResult = await baseQuery(
           {
-            url: "/jwt/refresh/",
+            url: "/auth/jwt/refresh/",
             method: "POST",
           },
           api,
@@ -42,7 +42,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 };
 
 export const apiSlice = createApi({
-  reducerPath: "api",
+  reducerPath: "api", // optional
   baseQuery: baseQueryWithReauth,
+  tagTypes: [""],
   endpoints: (builder) => ({}),
 });

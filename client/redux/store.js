@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "./services/apiSlice";
-import authReducer from "./features/authSlice";
+import { apiSlice } from "./api/apiSlice";
+import authReducer from "./features/auth/authSlice";
+// import { setupListeners } from "@reduxjs/toolkit/dist/query/react";
 
 export const store = configureStore({
   reducer: {
@@ -11,3 +12,5 @@ export const store = configureStore({
     getDefaultMiddleware().concat(apiSlice.middleware),
   devTools: process.env.NODE_ENV !== "production",
 });
+
+// setupListeners(store.dispatch);

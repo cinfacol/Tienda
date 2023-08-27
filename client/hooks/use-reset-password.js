@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useResetPasswordMutation } from "@/redux/features/authApiSlice";
+import { useResetPasswordMutation } from "@/redux/features/auth/authApiSlice";
 import { toast } from "react-toastify";
 
 export default function useResetPassword() {
