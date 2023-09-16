@@ -1,4 +1,5 @@
 import { Navbar, Footer } from "@/components/common";
+import ProductsList from "@/components/products/ProductsList";
 import { Setup } from "@/components/utils";
 import CustomProvider from "@/redux/provider";
 import "@/styles/globals.css";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             {children}
           </div>
+          <ProductsList />
           <Footer />
         </CustomProvider>
       </body>

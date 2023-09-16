@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "./api/apiSlice";
 import authReducer from "./features/auth/authSlice";
-// import { setupListeners } from "@reduxjs/toolkit/dist/query/react";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 export const store = configureStore({
   reducer: {
@@ -13,4 +13,4 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 });
 
-// setupListeners(store.dispatch);
+setupListeners(store.dispatch);

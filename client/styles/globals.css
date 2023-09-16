@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+section {
+  margin-top: 1em;
+}
+
+article {
+  margin: 0.5em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.productCredit {
+  font-size: 1rem;
+}
+
+.productCredit a,
+.productCredit a:visited {
+  margin-right: 0.5rem;
+  color: black;
+}
+
+.productCredit a:hover,
+.productCredit a:focus {
+  color: hsla(0, 0%, 0%, 0.75);
+}
+
+.excerpt {
+  font-style: italic;
+}

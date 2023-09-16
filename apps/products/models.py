@@ -7,6 +7,7 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
+from django.utils import timezone
 
 from apps.common.models import TimeStampedUUIDModel
 
@@ -130,6 +131,7 @@ class Product(TimeStampedUUIDModel):
     published_status = models.BooleanField(
         verbose_name=_("Published Status"), default=False
     )
+    date = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(verbose_name=_("Total Views"), default=0)
 
     objects = models.Manager()

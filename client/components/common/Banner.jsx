@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 /* This example requires Tailwind CSS v2.0+ */
 export default function Banner() {
@@ -26,55 +27,69 @@ export default function Banner() {
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
+                        <Image
                           src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
                           alt=""
+                          width={176}
+                          height={544}
                           className="w-full h-full object-center object-cover"
                         />
                       </div>
