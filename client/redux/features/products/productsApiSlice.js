@@ -24,7 +24,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
       },
       providesTags: (result, error, arg) => [
         "products",
-        ...result.ids.map((id) => ({ id })),
+        ...result?.ids.map((id) => ({ id })),
       ],
     }),
   }),

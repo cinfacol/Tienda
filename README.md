@@ -1,5 +1,6 @@
 # Tienda
 tienda online Django restframework - nextjs
+Ref1: Dave Gray - Redux Advanced Tutorial - React, Redux Toolkit, RTK Query Project
 
 ## pasos a seguir.
 1. Creamos el backend en la carpeta raiz del proyecto
